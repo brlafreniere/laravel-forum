@@ -13,4 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'TopicsController@index');
+Route::get('/admin/dashboard', 'AdminController@show');
+
+Route::resource('posts', 'PostsController');
+Route::resource('admin/topics', 'Admin\TopicsController');
