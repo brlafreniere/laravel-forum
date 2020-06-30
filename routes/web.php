@@ -16,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'TopicsController@index');
 Route::get('/admin/dashboard', 'AdminController@show');
 
+Route::get('topic/{topic_title}/', 'PostsController@index')->name('topic-posts');
+
 Route::resource('posts', 'PostsController');
+Route::resource('user-sessions', 'UserSessionController');
 Route::resource('admin/topics', 'Admin\TopicsController');
