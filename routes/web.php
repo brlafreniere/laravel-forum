@@ -19,6 +19,7 @@ Route::get('/admin/dashboard', 'AdminController@show');
 Route::get('topic/{topic_slug}/', 'PostsController@index')->name('topic-posts');
 
 Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
 Route::resource('user-sessions', 'UserSessionController');
 
 Route::resource('admin/topics', 'Admin\TopicsController');

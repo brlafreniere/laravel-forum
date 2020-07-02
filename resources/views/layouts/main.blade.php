@@ -2,10 +2,10 @@
     <head>
         <title>@yield('title')</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/app.css"
+        <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light container">
+        <nav class="navbar navbar-expand-lg navbar-dark text-light container" style="background-color: #3c3f5c">
             <a class="navbar-brand" href="/">Home</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,11 +13,11 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/dashboard">Admin</a>
-                    </li>
-                </ul>
+                <nav class="navbar-nav mr-auto">
+                    <a class="nav-link" href="/admin/dashboard">Admin</a>
+                    <a class="nav-link" href="{{ route("user-sessions.create") }}">Log In</a>
+                    <a class="nav-link" href="/admin/dashboard">Log Out</a>
+                </nav>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -25,7 +25,7 @@
             </div>
         </nav>
 
-        <main class="container mt-5">
+        <main class="container mt-5 p-0">
             @yield('content')
         </main>
 
