@@ -33,6 +33,6 @@ class PostsController extends Controller {
         $post->save();
 
         $topic = Topic::find($request->topic_id);
-        return redirect()->route('topic-posts', ['topic_title' => $topic->kebab_title()]);
+        return redirect()->route('topic-posts', ['topic_slug' => $topic->slug()]);
     }
 }
