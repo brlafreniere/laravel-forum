@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Topic extends Model {
-    public function posts() {
-        return $this->hasMany('App\Post');
+    protected static function booted() {
+        static::saving(function ($topic) {
+            $topic->slug = Str::kebab($topic->title);
+        });
     }
 
-    public function kebab_title() {
-        return Str::kebab($this->title);
+    public function posts() {
+        return $this->hasMany('App\Post');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTopicIdToPost extends Migration
+class AddUniqueModifierToTopics extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTopicIdToPost extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->foreignId('topic_id');
+        Schema::table('topics', function (Blueprint $table) {
+            $table->string('slug')->unique()->change();
         });
     }
 
@@ -25,8 +25,8 @@ class AddTopicIdToPost extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropForeign('topic_id');
+        Schema::table('topics', function (Blueprint $table) {
+            $table->string('slug')->dropUnique();
         });
     }
 }

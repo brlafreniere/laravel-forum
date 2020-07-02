@@ -23,3 +23,19 @@ main {
   background-color: #cbe8f5;
 }
 
+.forum-nav a {
+  display: inline-block;
+  padding: 1em;
+  background-color: #3e5970;
+}
+
+.forum-nav a:link,
+.forum-nav a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.forum-nav a:hover {
+  background-color: #3484b3;
+}
+

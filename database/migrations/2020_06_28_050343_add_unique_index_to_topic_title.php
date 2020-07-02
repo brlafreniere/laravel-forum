@@ -26,7 +26,7 @@ class AddUniqueIndexToTopicTitle extends Migration
     public function down()
     {
         Schema::table('topic_title', function (Blueprint $table) {
-            //
+            $table->dropUnique('title');
         });
     }
 }

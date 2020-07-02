@@ -1,8 +1,10 @@
-@extends("layouts.main")
+@extends("layouts.forum")
 
-@section("content")
+@section("forum_header")
     <h1 class="text-center">Topics</h1>
-    <div class="forum-body">
-        @include('topics.list')
-    </div>
+    @include("post.menu")
+@endsection
+
+@section("forum_content")
+    @include('topics.list')
 @endsection

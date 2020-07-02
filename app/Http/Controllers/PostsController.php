@@ -8,14 +8,19 @@ use App\Post;
 use App\Topic;
 
 class PostsController extends Controller {
-    public function index($topic_title) {
-        $topic = Topic::where('title', $topic_title)->first();
-        return view('post/index', ['posts' => Post::all()]);
+    public function index($topic_slug) {
+        $topic = Topic::where('slug', $topic_slug)->first();
+        return view('post/index', ['posts' => $topic->posts]);
     }
 
     public function create() {
         $topics = Topic::all();
         return view('post/create', ['topics' => $topics]);
+    }
+
+    public function show($id) {
+        $post = Post::find($id);
+        return view('post/show', ['post' => $post]);
     }
     
     public function store(Request $request) {
