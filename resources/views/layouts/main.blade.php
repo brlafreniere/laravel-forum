@@ -14,9 +14,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <nav class="navbar-nav mr-auto">
-                    <a class="nav-link" href="/admin/dashboard">Admin</a>
-                    <a class="nav-link" href="{{ route("user-sessions.create") }}">Log In</a>
-                    <a class="nav-link" href="/admin/dashboard">Log Out</a>
+                    @auth
+                        <a class="nav-link" href="/admin/dashboard">Admin</a>
+                        <a class="nav-link" href="{{ route("user-sessions.logout") }}">Log Out</a>
+                    @endauth
+                    @guest
+                        <a class="nav-link" href="{{ route("user-sessions.create") }}">Log In</a>
+                        <a class="nav-link" href="{{ route("users.create") }}">Register</a>
+                    @endguest
                 </nav>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

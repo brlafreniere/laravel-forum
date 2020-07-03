@@ -4,6 +4,7 @@
     <div class="bg-white p-5">
         <h1 class="pb-3 mb-5 border-bottom">Log In</h1>
         <form action="{{ route("user-sessions.store") }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="e-mail">E-mail Address</label>
                 <input name="email_address" class="form-control" type="email" />

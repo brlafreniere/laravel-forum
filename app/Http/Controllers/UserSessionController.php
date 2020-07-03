@@ -10,11 +10,22 @@ class UserSessionController extends Controller {
         return view("user-sessions/create");
     }
 
-    function store() {
-        $credentials = $request->only('email_address', 'password');
+    function store(Request $request) {
+        $credentials = [
+            'email' => $request->input('email_address'),
+            'password' => $request->input('password') ];
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended();
         }
+    }
+
+    function logout() {
+        return redirect()->action('UserSessionController@destroy');
+    }
+
+    function destroy() {
+        Auth::logout();
+        return redirect()->action('TopicsController@index');
     }
 }
